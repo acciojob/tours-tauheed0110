@@ -91,7 +91,7 @@ const App = () => {
                   <h2>{tour.name}</h2>
                   <div className="tour-info">
                     <p id={`tour-item-para-${tour.id}`}>{tour.displayFullText ? tour.info : tour.info.substring(0, 200)}</p>
-                    <button onClick={()=>{handleShowMore(tour.id)}} id={`see-more-${tour.id}`}>{tour.displayFullText ? "See less": "See more"}</button>
+                    <button onClick={()=>{handleShowMore(tour.id)}} id={`see-more-${tour.id}`}>{tour.displayFullText ? "Show less": "See more"}</button>
                   </div>
                   <img src={tour.image} width={"300px"}/>
                   <p className="tour-price">Price: ${tour.price}</p>
