@@ -87,7 +87,7 @@ const App = () => {
                   <h2>{tour.name}</h2>
                   <div className="tour-info">
                     <p id={`tour-item-para-${tour.id}`}>{showFulltext ? tour.info : tour.info.substring(0, 200)}</p>
-                    <button onClick={handleShowMore}>Show more</button>
+                    <button onClick={handleShowMore} id={`see-more-${tour.id}`}>Show more</button>
                     <button onClick={handleShowLess}>Show less</button>
                   </div>
                   <img src={tour.image} width={"300px"}/>
