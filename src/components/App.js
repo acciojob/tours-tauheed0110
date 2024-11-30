@@ -86,13 +86,13 @@ const App = () => {
             return <div className="single-tour" key={tour.id}>
                   <h2>{tour.name}</h2>
                   <div className="tour-info">
-                    <p>{showFulltext ? tour.info : tour.info.substring(0, 200)}</p>
+                    <p id={`tour-item-para-${tour.id}`}>{showFulltext ? tour.info : tour.info.substring(0, 200)}</p>
                     <button onClick={handleShowMore}>Show more</button>
                     <button onClick={handleShowLess}>Show less</button>
                   </div>
                   <img src={tour.image} width={"300px"}/>
                   <p className="tour-price">Price: ${tour.price}</p>
-                  <button onClick={()=>{handleDelete(tour.id)}}>Delete</button>
+                  <button onClick={()=>{handleDelete(tour.id)}} id={`delete-btn-${tour.id}`}>Delete</button>
             </div>
           })
       }
