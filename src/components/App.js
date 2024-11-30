@@ -74,7 +74,7 @@ const App = () => {
   }
   if(allDeleted){
     return <div>
-      <h2>Tour is empty..</h2>
+      <h2>No more tours</h2>
       <button className="btn" onClick={hanldeRefresh}>Refresh</button>
     </div>
   }
@@ -87,7 +87,7 @@ const App = () => {
                   <h2>{tour.name}</h2>
                   <div className="tour-info">
                     <p id={`tour-item-para-${tour.id}`}>{showFulltext ? tour.info : tour.info.substring(0, 200)}</p>
-                    <button onClick={handleShowMore} id={`see-more-${tour.id}`}>See more</button>
+                    <button onClick={handleShowMore} id={`see-more-${tour.id}`}>Show more</button>
                     <button onClick={handleShowLess}>See less</button>
                   </div>
                   <img src={tour.image} width={"300px"}/>
