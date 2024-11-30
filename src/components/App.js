@@ -42,11 +42,18 @@ const toursData = [
 const App = () => {
   const [tours, setTours] = useState(toursData);
   const [loading, setLoading] = useState(true);
-  const [showFulltext, setShowFulltext] = useState(false);
   const [allDeleted, setAllDeleted] = useState(false);
 
-  const handleShowMore = ()=>{
-    setShowFulltext(!showFulltext);
+  const handleShowMore = (id)=>{
+    setTours(prev => {
+      return prev.map(tour => {
+        if(tour.id == id){
+          const newTour = {...tour, displayFullText: tour.displayFullText? !tour.displayFullText :true}
+          return newTour;
+        }
+        return tour;
+      })
+    })
   }
   const handleDelete = (id)=>{
     const newData = tours.filter(tour => tour.id != id);
@@ -83,8 +90,8 @@ const App = () => {
             return <div className="single-tour" key={tour.id}>
                   <h2>{tour.name}</h2>
                   <div className="tour-info">
-                    <p id={`tour-item-para-${tour.id}`}>{showFulltext ? tour.info : tour.info.substring(0, 200)}</p>
-                    <button onClick={handleShowMore} id={`see-more-${tour.id}`}>{showFulltext ? "See less": "Show more"}</button>
+                    <p id={`tour-item-para-${tour.id}`}>{tour.displayFullText ? tour.info : tour.info.substring(0, 200)}</p>
+                    <button onClick={()=>{handleShowMore(tour.id)}} id={`see-more-${tour.id}`}>{tour.displayFullText ? "See less": "Show more"}</button>
                   </div>
                   <img src={tour.image} width={"300px"}/>
                   <p className="tour-price">Price: ${tour.price}</p>
