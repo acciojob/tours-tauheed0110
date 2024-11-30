@@ -46,10 +46,7 @@ const App = () => {
   const [allDeleted, setAllDeleted] = useState(false);
 
   const handleShowMore = ()=>{
-    setShowFulltext(true);
-  }
-  const handleShowLess = ()=>{
-    setShowFulltext(false);
+    setShowFulltext(!showFulltext);
   }
   const handleDelete = (id)=>{
     const newData = tours.filter(tour => tour.id != id);
@@ -87,8 +84,7 @@ const App = () => {
                   <h2>{tour.name}</h2>
                   <div className="tour-info">
                     <p id={`tour-item-para-${tour.id}`}>{showFulltext ? tour.info : tour.info.substring(0, 200)}</p>
-                    <button onClick={handleShowMore} id={`see-more-${tour.id}`}>Show more</button>
-                    <button onClick={handleShowLess}>See less</button>
+                    <button onClick={handleShowMore} id={`see-more-${tour.id}`}>{showFulltext ? "See less": "Show more"}</button>
                   </div>
                   <img src={tour.image} width={"300px"}/>
                   <p className="tour-price">Price: ${tour.price}</p>
