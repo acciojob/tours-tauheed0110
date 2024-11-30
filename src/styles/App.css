@@ -1,4 +1,13 @@
-h1 {
+.main{
+    padding: 2rem;
+}
+.single-tour{
+    padding: 1rem;
+    border: 1px solid #27aedb;
+    border-radius: 1rem;
+    margin: 1rem 0;
+}
+h2 {
     color: #27aedb;
     text-align: center;
     }
